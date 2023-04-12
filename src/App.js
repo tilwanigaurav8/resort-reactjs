@@ -1,24 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter as Router,Route,Routes, Switch} from "react-router-dom";
+import Home from "./pages/home";
+import Singleroom from "./pages/Singleroom";
+import Rooms from "./pages/rooms";
+import Error from "./pages/Error";
+import Navbar from './components/Navbar';
+/* for react-router-dom versions above 5 Switch is replaced by Routes
+<Route exact path="" element={<... />} />
+or
+<Route exact path="" component={...} />
+for above 5 we use 
+*/
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/">
+                <Home />
+            </Route>
+            <Route exact path="/rooms/:id">
+                <Singleroom />
+            </Route>
+            <Route exact path="/rooms">
+                <Rooms />
+            </Route>
+            <Route exact path="*">
+                <Error />
+            </Route>
+          </Switch>
+        </Router>
   );
 }
 
