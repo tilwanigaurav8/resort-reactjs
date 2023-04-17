@@ -4,12 +4,14 @@ import './index.css';
 import { BrowserRouter as Router,Route,Switch} from "react-router-dom";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import {RoomProvider} from './context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
-    <App />
-  </Router>
+  <RoomProvider>
+    <Router>
+      <App />
+    </Router>
+  </RoomProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
