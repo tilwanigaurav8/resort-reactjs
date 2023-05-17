@@ -17,6 +17,6 @@ export default class FeaturedRooms extends Component{
                     {loading ? <Loading /> : rooms}
                 </div>
             </section>
-        )
+        );
     }
 }

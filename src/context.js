@@ -7,7 +7,7 @@ export default class RoomProvider extends Component{
 
     state={
         rooms:[],
-        storedRooms:[],
+        sortedRooms:[],
         featuredRooms:[],
         loading:true
     };
