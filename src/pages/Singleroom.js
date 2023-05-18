@@ -32,7 +32,7 @@ class Singleroom extends Component{
 
         const {name,description,capacity,size,price,extras,breakfast,pets,images}=room;
         return (
-            <StyledHero img={images[0]}>
+            <StyledHero img={images[0] || this.state.defaultBcg}>
                 <Banner title={`${name} room`}>
                     <Link to='/rooms' className='btn-primary'>back to rooms</Link>
                 </Banner>
