@@ -499,6 +499,9 @@ h6 {
   font-size: 0.8rem;
   margin-left: 0.5rem;
 }
+.pb{
+  font-weight: bold;
+}
 @media screen and (min-width: 776px) {
   .filter-form {
     width: 70vw;
