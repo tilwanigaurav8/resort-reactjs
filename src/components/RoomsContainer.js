@@ -13,6 +13,7 @@ function RoomsContainer({context}){
     return (
         <div>
             <p> Hello froms Rooms Container </p>
+            
             <RoomFilter rooms={rooms}/>
             <RoomList rooms={sortedRooms} />
         </div>
