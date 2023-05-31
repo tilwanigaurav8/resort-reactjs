@@ -24,7 +24,9 @@ const RoomFilter=({rooms})=>{
         <form className="filter-form">
             <div className="form-group">
                 <label htmlFor="type">Room type</label>
-                <select name="type" id="type" value={type} className="form-control" onChange={handleChange} >{types}</select>
+                <select name="type" id="type" value={type} className="form-control" onChange={handleChange}>
+                    {types}
+                </select>
             </div>
         </form>
     </section>

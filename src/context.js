@@ -1,4 +1,6 @@
 import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
+import { findAllByTestId } from '@testing-library/react';
+import { type } from '@testing-library/user-event/dist/type';
 import React,{Component} from 'react';
 import items from './data';
 const RoomContext=React.createContext();
@@ -9,7 +11,16 @@ export default class RoomProvider extends Component{
         rooms:[],
         sortedRooms:[],
         featuredRooms:[],
-        loading:true
+        loading:true,
+        type:'all',
+        capacity:1,
+        price:0,
+        minPrice:0,
+        maxPrice:0,
+        minSize:0,
+        maxSize:0,
+        breakfast:false,
+        pets:false
     };
     // getData if loading is from external database
 
@@ -34,6 +45,18 @@ export default class RoomProvider extends Component{
         let tempRooms=[...this.state.rooms];
         const room=tempRooms.find(room=>room.slug===slug);
         return room;
+    }
+
+    handleChange=(event)=>{
+        const target=event.target;
+        const value=event.type==='checkbox' ? target.checked:target.value;
+        this.setState({
+            [event.target.name]:value
+        },this.filterRooms)
+    };
+
+    filterRooms=()=>{
+        console.log("hello");
     }
 
     render(){
