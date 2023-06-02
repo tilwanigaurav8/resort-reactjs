@@ -14,7 +14,7 @@ export default class RoomProvider extends Component{
         loading:true,
         type:'all',
         capacity:1,
-        price:0,
+        price:1200,
         minPrice:1200,
         maxPrice:9600,
         minSize:0,
@@ -66,6 +66,8 @@ export default class RoomProvider extends Component{
         let tempRooms=[...rooms];
         // capacity wise
         capacity=parseInt(capacity);
+        // tarriff wise
+        price=parseInt(price);
         //filter by type
         if(type!=='all'){
             tempRooms=tempRooms.filter(room=>room.type===type)
@@ -74,6 +76,10 @@ export default class RoomProvider extends Component{
         if(capacity !== 1){
             tempRooms=tempRooms.filter(room=>room.capacity>=capacity)
         }
+        // filter by tarriff
+        tempRooms=tempRooms.filter(room=>room.price<=price);
+
+        // change state
         this.setState({sortedRooms:tempRooms})
     }
 
