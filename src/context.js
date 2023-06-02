@@ -78,7 +78,16 @@ export default class RoomProvider extends Component{
         }
         // filter by tarriff
         tempRooms=tempRooms.filter(room=>room.price<=price);
-
+        //filter by breakfast
+        if(breakfast){
+            tempRooms=tempRooms.filter(room=>room.breakfast===true)
+        }
+        //filter by size
+        tempRooms=tempRooms.filter(room=>room.size>=minSize && room.size<=maxSize)
+        //filter by pets
+        if(pets){
+            tempRooms=tempRooms.filter(room=>room.pets===true)
+        }
         // change state
         this.setState({sortedRooms:tempRooms})
     }
