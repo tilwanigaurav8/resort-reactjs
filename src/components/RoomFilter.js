@@ -9,7 +9,7 @@ const getUnique=(items,value)=>{
 }
 const RoomFilter=({rooms})=>{
     const context=useContext(RoomContext);
-    const {handleChange,type,capacity,minPrice,maxPrice,minSize,maxSize,breakfast,pets}=context;
+    const {handleChange,type,capacity,price,minPrice,maxPrice,minSize,maxSize,breakfast,pets}=context;
     // get unique types
     let types=getUnique(rooms,'type');
     //add all
@@ -40,6 +40,13 @@ const RoomFilter=({rooms})=>{
                 value={capacity}className="form-control" onChange={handleChange}>
                     {people}
                 </select>
+            </div>
+
+            {/*for room tarriff*/}
+
+            <div className="form-group">
+                <label htmlFor="price">Room price ₹{price}</label>
+                <input type="range" name="price" min={minPrice} max={maxPrice} id="price" value={price} onChange={handleChange} className="form-control"/>
             </div>
         </form>
     </section>
