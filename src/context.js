@@ -48,11 +48,14 @@ export default class RoomProvider extends Component{
     }
 
     handleChange=(event)=>{
-        const target=event.target;
-        const value=event.type==='checkbox' ? target.checked:target.value;
+        const target = event.target;
+        const value = target.type === "checkbox" ? target.checked : target.value;
+        const name = target.name;
+        console.log(name, value);
         this.setState({
-            [event.target.name]:value
+            [name]:value
         },this.filterRooms)
+        
     };
 
     filterRooms=()=>{
@@ -62,7 +65,7 @@ export default class RoomProvider extends Component{
     render(){
         
         return (
-            <RoomContext.Provider value={{...this.state,getRoom:this.getRoom}}>
+            <RoomContext.Provider value={{...this.state,getRoom:this.getRoom,handleChange: this.handleChange}}>
                 {this.props.children}
             </RoomContext.Provider>
         );

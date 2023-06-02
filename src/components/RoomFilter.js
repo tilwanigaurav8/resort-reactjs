@@ -16,7 +16,7 @@ const RoomFilter=({rooms})=>{
     types=['all',...types];
     types=types.map((item,index)=>{
         return <option value={item} key={index}>{item}</option>
-    })
+    });
     
     return (
     <section className="filter-container">
@@ -24,7 +24,7 @@ const RoomFilter=({rooms})=>{
         <form className="filter-form">
             <div className="form-group">
                 <label htmlFor="type">Room type</label>
-                <select name="type" id="type" value={type} className="form-control" onChange={handleChange}>
+                <select name="type" id="type" className="form-control" onChange={context.handleChange}>
                     {types}
                 </select>
             </div>
