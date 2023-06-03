@@ -14,11 +14,11 @@ export default class RoomProvider extends Component{
         loading:true,
         type:'all',
         capacity:1,
-        price:1200,
+        price:9600,
         minPrice:1200,
         maxPrice:9600,
         minSize:0,
-        maxSize:0,
+        maxSize:1000,
         breakfast:false,
         pets:false
     };
@@ -60,7 +60,7 @@ export default class RoomProvider extends Component{
 
     filterRooms=()=>{
         let{
-            rooms,type,capacity,price,minPrice,maxSize,breakfast,pets
+            rooms,type,capacity,price,minPrice,minSize,maxSize,breakfast,pets
         }=this.state;
         // all the rooms
         let tempRooms=[...rooms];
